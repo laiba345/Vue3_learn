@@ -4,12 +4,14 @@
     <hr>
     <h2>当前的信息为:{{ msg }}</h2>
     <button @click="msg += '!'">修改信息</button>
+    <h2>当前薪资为:{{ person.job.j1.salary }}</h2>
+    <button @click="person.job.j1.salary++">涨薪</button>
 </template>
   
 <script>
 // 引入渲染函数
 // 组合API其实就是一堆内置函数
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref, watch, watchEffect } from 'vue'
 export default {
     name: 'Demo',
     // setup是没有this的，我们是不需要使用的
@@ -17,7 +19,7 @@ export default {
         // 数据
         let sum = ref(0)
         let msg = ref('你好啊')
-        let person = ref({
+        let person = reactive({
             name: '章三',
             age: 18,
             job: {
@@ -33,12 +35,17 @@ export default {
             console.log('sum变了', newValue, oldValue)
         }, { immediate: true })
 
-        /* watch(person.value, (newValue, oldValue) => {
-            console.log('sum的值变了', newValue, oldValue)
-        }) */
-        watch(person, (newValue, oldValue) => {
-            console.log('sum的值变了', newValue, oldValue)
-        }, { deep: true })
+        // 不用指明监视哪个属性，监视的回调中用到哪个属性，就监视哪个属性即可
+        /* 
+            watchEffect有点像computed
+                但computed注重的是计算出来的值（回调函数的返回值）所以必须写返回值
+                而watchEffect更注重的是过程(回调函数的函数体)所以不用返回值
+        */
+        watchEffect(() => {
+            const x1 = sum.value
+            const x2 = person.job.j1.salary
+            console.log('watchEffect所指定的回调执行了')
+        })
 
         // 情况二、监视ref所定义的多个响应式数据
         /* watch([sum, msg], (newValue, oldValue) => {
@@ -47,7 +54,7 @@ export default {
 
         return {
             sum,
-            msg,
+            msg, 
             person
         }
     }
