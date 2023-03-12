@@ -12,7 +12,7 @@
 import { reactive, ref, watch } from 'vue'
 export default {
     name: 'Demo',
-    // setup是没有this的，我们是不需要使用的
+    // setup是没有this的，我们是不需要使用的 里面都是工厂函数
     setup() {
         // 数据
         let sum = ref(0)

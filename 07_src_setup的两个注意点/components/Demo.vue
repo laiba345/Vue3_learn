@@ -12,6 +12,7 @@ import { reactive } from 'vue'
 export default {
     name: 'Demo',
     props: ['msg', 'school'],
+    // Vue3中接收到父组件的事件用emits属性接收
     emits: ['hello'], // 我知道了，你给我绑定了一个hello事件
     /* beforeCreate() {
         console.log('----beforeCreate----')
@@ -36,6 +37,7 @@ export default {
             age: 18,
         })
         function test() {
+            // 通过context.emit() 进行触发，并携带数据过去
             context.emit('hello', 666)
         }
         return {

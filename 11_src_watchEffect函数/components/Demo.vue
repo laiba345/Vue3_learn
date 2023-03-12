@@ -42,6 +42,7 @@ export default {
                 而watchEffect更注重的是过程(回调函数的函数体)所以不用返回值
         */
         watchEffect(() => {
+            // 监视的回调中用到哪个属性，就监视哪个属性
             const x1 = sum.value
             const x2 = person.job.j1.salary
             console.log('watchEffect所指定的回调执行了')

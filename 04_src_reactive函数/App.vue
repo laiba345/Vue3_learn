@@ -71,6 +71,7 @@ export default {
       // 上面书写了以后千万记得return出去
       changeInfo,
       hobby */
+      // 能用简写形式就用简写形式
       person,
       changeInfo
     }

@@ -31,12 +31,13 @@ export default {
             return person.firstName + '-' + person.lastName
         }) */
 
-        // 完整写法 -- 考虑读和写
+        // 完整写法 -- 考虑读和写 -- 书写getter和setter都要出来
         person.fullName = computed({
             get() {
                 return person.firstName + '-' + person.lastName
             }, 
             set(value) {
+                // 中间有个分隔，用split('-')进行分割
                 const nameArr = value.split('-')
                 person.firstName = nameArr[0]
                 person.lastName = nameArr[1]

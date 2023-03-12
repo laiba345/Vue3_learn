@@ -18,7 +18,7 @@
         //#region 
         /* let p = {}
 
-        // 模拟Vue中的响应式原理
+        // 模拟Vue中的响应式原理 通过p对象来监测person里面的对象
         Object.defineProperty(p, 'name', {
             get() { // 有人读取name时调用
                 return person.name
@@ -34,6 +34,7 @@
 
         // 模拟Vue3中实现响应式
         // person 源数据 p～代理数据
+        // vue2是通过监测代理数据
         const p = new Proxy(person, {
             // target ~ person  b ~ 属性
             // 有人读取p的某个属性时调用

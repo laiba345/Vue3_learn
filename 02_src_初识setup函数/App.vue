@@ -36,6 +36,7 @@ export default {
     function sayHello() {
       alert(`我叫${name}, 我${age}岁了, 你好啊`)
     }
+    // 书写的方法也要进行返回操作
     return {
       name, 
       age, 
