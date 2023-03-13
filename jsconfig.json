@@ -1,4 +1,4 @@
-c{
+{
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
