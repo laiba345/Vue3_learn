@@ -12,6 +12,7 @@
         name: 'Child', 
         components: { Son }, 
         setup() {
+            // 直接通过inject获取
             let car = inject('car')
             return { car }
         }

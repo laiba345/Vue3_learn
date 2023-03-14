@@ -16,7 +16,7 @@ export default {
     function myRef(value) {
       let timer
       // 第一个return是把忙活一圈的ref交出去
-      
+      // customRef也只是一个工厂函数，里面两个参数
       return customRef((track, trigger) => {
         // 第二个是语法要求
         return {

@@ -41,6 +41,7 @@ export default {
 
 .dialog {
     position: absolute;
+    /* 下面三句表示将元素进行移动到屏幕正中间 */
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);

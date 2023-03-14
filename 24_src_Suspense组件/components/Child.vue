@@ -21,7 +21,7 @@
               resolve({ sum })
             }, 1000);
           })
-          return await p
+          return await p // 效果相当于上面的return new Promise()
         }
     }
   </script>

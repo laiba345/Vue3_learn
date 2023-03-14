@@ -22,7 +22,7 @@ Vue3中实现
         v-on:close="handleComponentEvent"
         v-on:click="handleNativeClickNative"
     />
-- 子组件声明自定义事件
+- 子组件声明自定义事件(emits配置项)
 <script>
     export default {
         emits: ['close']  // 自定义事件通过emits进行触发即可

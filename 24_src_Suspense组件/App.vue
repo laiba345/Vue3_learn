@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <h3>我是App组件(祖)</h3>
+    <!-- 搭配异步引入进行使用 -->
     <Suspense>
       <template v-slot:default>
         <Child />

@@ -1,0 +1,2 @@
+Teleport
+- 瞬移
