@@ -11,7 +11,7 @@
         setup() {
             let car = inject('car')
             // console.log(car)
-
+            // 获取到相应的数据需要return出去
             return { car }
         }
     }
