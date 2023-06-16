@@ -18,7 +18,7 @@
     - Vue3; Proxy
         - Why?
         - 1、无法监听对象或数组新增、删除的元素
-        - 2、
+
 7. 虚拟DOM
     - Vue3的虚拟DOM上增加了patchFlag字段,
     ```
@@ -36,12 +36,39 @@
 2. 使用组合式API; 我们使用导入的API函数定义组件的逻辑
 
 ## Vue3 (codeWhy)
+### 指令
 1. 指令
 - v-once; 用于指定元素或者组件只渲染一次
 - v-text; 用于更新元素的textContent
+    ```
+    <template>
+        <span v-text="message"></span>
+    </template>
+
+    <script>
+        import { ref } from 'vue';
+        export default {
+            name: "Test",
+            setup() {
+                let message = ref('kang')
+
+                return {
+                    message
+                }
+            }
+        }
+    </script>
+
+    <style>
+        span {
+            color: yellowgreen;
+        }
+    </style>
+    ```
 - v-html; 如果我们展示的内容本身是html的,那么vue并不会对其进行特殊的解析
 - v-pre; 用于跳过元素和它子元素的编译过程
 
+### 绑定基本属性
 2. 绑定基本属性
 - v-bind; 用于绑定一个或多个属性值,或者向另一个组件传递props值
     - v-bind;还有一个语法糖; 简写形式;使用一个冒号:
@@ -60,6 +87,7 @@
     - 我们可以直接使用v-bind绑定一个对象
     - <div v-bind="info">{{ message }}</div>
 
+### 绑定事件
 3. v-on绑定事件
 - vue中如何监听事件? 使用v-on指令
 - v-on的使用; 缩写@
@@ -85,14 +113,58 @@
     ```
 - v-show和v-if的区别
     - 用法上的区别
-        - v-show不支持template
+        - **v-show不支持template**
         - v-show不可以和v-else一起使用
     - 本质的区别
-        - v-show元素无论是否需要显示到浏览器中,它的DOM实际都是存在的,只是通过CSS的display属性来进行切换
+        - v-show元素无论是否需要显示到浏览器中,**它的DOM实际都是存在的**,只是通过CSS的display属性来进行切换
         - v-if当条件为false时,其对应的原生压根不会渲染到DOM中
 - 开发中如何选择
     - 需要在显示和隐藏之间频繁的切换,使用v-show比较好
 
+
+### 遍历
+1. v-for的基本使用
+- 通用格式；(item, index) in 数组；注意：item和index的顺序不能颠倒
+- v-for也支持遍历对象，而且支持三个参数
+    - 格式
+    - (value, key, index) in object
+- 类似于v-if，你可以使用template元素来循环渲染一段包含多个元素的内容
+
+2. 数组
+- 生成新的数组的方法
+    - filter()
+    - concat()
+    - slice()
+
+### key和diff算法
+1. key属性主要用在Vue的虚拟DOM算法，在新旧Nodes对比时辨识VNodes
+
+
+### 计算属性（computed）
+1. 计算属性是有缓存的
+    - 计算属性会基于它们的依赖关系进行缓存
+    - 在数据不发生变化时，计算属性是不需要重新计算的
+2. 计算属性的setter和getter
+    - 计算属性在大多数情况下，只需要一个getter方法，所以我们会将计算属性直接写成一个函数
+    - **如果我们想要设置计算属性的值**，可以给计算属性设置一个setter的方法
+3. 计算属性是可以直接绑定在data上的
+
+
+### 侦听器（watch）
+1. 在代码中，我们想要监听某个数据的变化，就需要侦听器watch来完成
+
+
+### v-model的基本使用
+1. v-model指令可以在表单input、textarea以及select元素上创建双向数据绑定
+2. 原理
+    - v-bind绑定value属性的值
+    - v-on绑定input事件监听到函数中，函数会获取最新的值赋值到绑定的属性中
+3. v-model绑定checkbox
+    - 单个勾选框
+        - v-model即为布尔值
+        - 此时input的value属性并不影响v-model的值
+    - 多个复选框
+        - 因为可以选择多个，所以对应的data中属性是一个数组
 
 
 

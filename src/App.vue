@@ -10,16 +10,19 @@
       </template>
     </Suspense>
   </div>
+
+  <Test />
 </template>
 
 <script>
-  // import Child from './components/Child.vue'; 静态引入
-  import { defineAsyncComponent } from 'vue';
-  const Child = defineAsyncComponent(() => import('./components/Child.vue')) // 异步引入
-  export default {
-    name: 'App',
-    components: { Child },
-  }
+// import Child from './components/Child.vue'; 静态引入
+import { defineAsyncComponent } from 'vue';
+import Test from './components/Test.vue';
+const Child = defineAsyncComponent(() => import('./components/Child.vue')) // 异步引入
+export default {
+  name: 'App',
+  components: { Child, Test },
+}
 </script>
 
 <style>
