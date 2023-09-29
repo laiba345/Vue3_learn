@@ -16,6 +16,7 @@
         { name: '奔驰', price: '40w' }
       )
       // 直接通过provide传递出去
+      // 前面是属性名后面是属性值,进行相关操作即可
       provide('car', car) // 给自己的后代组件传递数据
       return {
         ...toRefs(car)

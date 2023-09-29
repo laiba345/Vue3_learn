@@ -18,6 +18,7 @@ export default {
         // 数据
         let sum = ref(0)
         // 是函数，可以直接进行调用
+        // 调用相关函数,最终得到的就是具体的点的坐标; 
         let point = usePoint()
         /* let point = reactive({
             x: 0,

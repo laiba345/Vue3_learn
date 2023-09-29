@@ -1,4 +1,4 @@
-Vue3.0将很多API进行了调整，将全局的API
+Vue3.0将很多API进行了调整，将全局的API (将很多的API进行了调整,将全局的API进行了调整)
 - 即Vue.xxx 调整到应用实例app上
 Vue.config.xxx => app.config.xxx
 Vue.config.productionTip 移除
@@ -10,7 +10,7 @@ Vue.prototype => app.config.globalProperties
 
 data选项应该始终被声明为一个函数
 
-过渡类名的更改
+过渡类名的更改(过渡类名的更改; )
 .v-enter => .v-enter-from 
 
 移除keyCode作为v-on的修饰符，同时也不支持config.keyCodes

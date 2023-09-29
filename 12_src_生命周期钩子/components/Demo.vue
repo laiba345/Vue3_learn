@@ -17,12 +17,14 @@ export default {
         // 2、通过组合式API的形式去使用生命周期钩子
         // 组合式API的形式，是函数钩子里面放的是
         // 执行比配置项更快
+        // 生命周期分类:创建前后、挂载前后、更新前后、销毁前后
         onBeforeMount(() => {
             console.log('---onBeforeMount---')
         })
         onMounted(() => {
             console.log('---onMounted---')
         })
+        // 更新前后
         onBeforeUpdate(() => {
             console.log('---onBeforeUpdate---')
         })

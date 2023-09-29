@@ -2,7 +2,7 @@
 
 相比于传统的 `Options API`，`Composition API` 的优势主要有以下几个方面：
 
-1. 更好的逻辑复用：传统的 `Options API` 中，逻辑的复用主要依赖于 Mixins，但是 Mixins 会带来命名冲突、命名污染等问题。而 `Composition API` 中，逻辑复用依赖于函数，通过函数封装来提高代码复用性。
+1. 更好的逻辑复用：传统的 `Options API` 中，逻辑的复用主要依赖于 Mixins，但是 **Mixins 会带来命名冲突、命名污染等问题**。而 `Composition API` 中，逻辑复用依赖于函数，通过函数封装来提高代码复用性。
 
 2. 更好的代码组织：传统的 `Options API` 中，不同的组件选项（data、computed、watch、methods 等）散落在不同的选项中，使得代码逻辑不够清晰，难以维护。而 `Composition API` 中，组件内的逻辑可以按照功能划分为不同的函数，从而更好地组织代码。
 

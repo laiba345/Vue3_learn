@@ -20,11 +20,14 @@ export default {
 
         // 情况一、监视 ref所定义的一个响应式数据
         // 第三个参数，配置相应的属性操作
+        // 监视的第一个参数属性,放在第一个即可
         watch(sum, (newValue, oldValue) => {
             console.log('sum变了', newValue, oldValue)
         }, {immediate:true})
 
         // 情况二、监视ref所定义的多个响应式数据
+        // 如果有多个参数, 使用[]来收集获取即可;
+        // 有多个参数的时候,使用[]来进行前后收集
         /* watch([sum, msg], (newValue, oldValue) => {
             console.log('sum或者msg变了', newValue, oldValue)
         }) */
