@@ -31,3 +31,31 @@ Vue3中实现
 
 移除过滤器（filter）
 - 建议用方法调用或计算属性去替换过滤器
+
+过滤器(filter); 是一种用于处理模版中文本格式化的功能; 
+- 过滤器可以用来在渲染输出之前对数据进行一些简单的转换, 以改变它们的显示方式, 
+- 过滤器通常用于处理文本的格式化、日期的处理,字符串的转化等 ; 
+    - 并通过管道符 | 来进行相关操作的连接; 管道符号会将前面的内容传递给过滤器
+'''
+<div id="app">
+  <p>{{ message | capitalize }}</p>
+</div>
+
+new Vue({
+  el: '#app',
+  data: {
+    message: 'hello world'
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
+})
+'''
+
+
+
+
